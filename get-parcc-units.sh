@@ -4,7 +4,7 @@
 
 SRV_NAME=$1
 
-wget -O - http://${SRV_NAME}.ccpcs.local:4480/contents.jsp?locale=en_US \
+curl -o - http://${SRV_NAME}.ccpcs.local:4480/contents.jsp?locale=en_US \
     | grep '<a href="contentdetails.jsp' \
     | sed -E 's/^.*<a href="contentdetails.jsp.+>([^<]+)<.*$/\1/' \
     | sort
